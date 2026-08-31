@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
+import PersistentTicket from './PersistentTicket';
 
 export const metadata = {
   icons: {
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body suppressHydrationWarning>
+        <PersistentTicket />
         {children}
 
         <Script
