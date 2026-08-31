@@ -1,10 +1,10 @@
 export const aanmeldenVipsMeta = {
-  "title": "Aanmelden VIPs - HomeTown Festival",
+  "title": "Sign Up VIPs - HomeTown Festival",
   "metaDescription": null,
-  "ogTitle": "Aanmelden VIPs - HomeTown Festival",
+  "ogTitle": "Sign Up VIPs - HomeTown Festival",
   "ogDescription": null,
   "ogType": null,
-  "twitterTitle": "Aanmelden VIPs - HomeTown Festival",
+  "twitterTitle": "Sign Up VIPs - HomeTown Festival",
   "twitterDescription": null,
   "twitterCard": null,
   "robotsMeta": "noindex",

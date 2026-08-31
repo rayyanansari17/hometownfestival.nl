@@ -1,11 +1,11 @@
 export const homeMeta = {
-  "title": "HomeTown Festival | Vrijdag 28 en Zaterdag 29 augustus 2026",
-  "metaDescription": "De 10e én laatste editie van HTF! 🌴 Zet je schrap, want we hebben veel moois voor jullie in petto deze laatste keer! Going out with a bang 💥💥",
-  "ogTitle": "HomeTown Festival | Vrijdag 28 en Zaterdag 29 augustus 2026",
-  "ogDescription": "De 10e én laatste editie van HTF! 🌴 Zet je schrap, want we hebben veel moois voor jullie in petto deze laatste keer! Going out with a bang 💥💥",
+  "title": "HomeTown Festival | Saturday 10 October 2026",
+  "metaDescription": "The 3rd edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
+  "ogTitle": "HomeTown Festival | Saturday 10 October 2026",
+  "ogDescription": "The 3rd edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
   "ogType": "website",
-  "twitterTitle": "HomeTown Festival | Vrijdag 28 en Zaterdag 29 augustus 2026",
-  "twitterDescription": "De 10e én laatste editie van HTF! 🌴 Zet je schrap, want we hebben veel moois voor jullie in petto deze laatste keer! Going out with a bang 💥💥",
+  "twitterTitle": "HomeTown Festival | Saturday 10 October 2026",
+  "twitterDescription": "The 3rd edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
   "twitterCard": "summary_large_image",
   "robotsMeta": null,
   "wfPage": "6405b63d5dbbf472925010e9"

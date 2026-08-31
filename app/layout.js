@@ -18,7 +18,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="nl"
+      lang="en"
       data-wf-domain={sharedHead.wfDomain}
       data-wf-site={sharedHead.wfSite}
       suppressHydrationWarning

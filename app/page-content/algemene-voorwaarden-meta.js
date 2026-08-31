@@ -1,10 +1,10 @@
 export const algemeneVoorwaardenMeta = {
-  "title": "Algemene voorwaarden",
+  "title": "Terms & Conditions",
   "metaDescription": null,
-  "ogTitle": "Algemene voorwaarden",
+  "ogTitle": "Terms & Conditions",
   "ogDescription": null,
   "ogType": null,
-  "twitterTitle": "Algemene voorwaarden",
+  "twitterTitle": "Terms & Conditions",
   "twitterDescription": null,
   "twitterCard": null,
   "robotsMeta": "noindex",
