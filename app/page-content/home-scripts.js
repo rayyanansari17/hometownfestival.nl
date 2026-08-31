@@ -120,5 +120,10 @@ export const homeScripts = [
     "id": "home-chain-18",
     "content": "// countdown\n  var startDate = $('.final-date').text();\n  $('#getting-started').countdown(startDate, function(event) {\n    $('#event_day').text(event.strftime('%D'));\n    $('#event_hours').text(event.strftime('%H'));\n    $('#event_minute').text(event.strftime('%M'));\n    $('#event_sec').text(event.strftime('%S'));\n  });",
     "strategy": "afterInteractive"
+  },
+  {
+    "id": "hero-bg-video-lazy-load",
+    "content": "(function() {\n  function loadBgVideo() {\n    var container = document.getElementById('hero-bg-video');\n    if (!container || container.querySelector('iframe')) return;\n    var iframe = document.createElement('iframe');\n    iframe.src = 'https://www.youtube.com/embed/ileqZkXqbAI?autoplay=1&mute=1&loop=1&playlist=ileqZkXqbAI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1';\n    iframe.style.cssText = 'position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);pointer-events:none;z-index:-100;border:0';\n    iframe.setAttribute('allow', 'autoplay; encrypted-media');\n    iframe.setAttribute('title', 'HomeTown Festival background video');\n    container.appendChild(iframe);\n  }\n  if (document.readyState === 'complete') {\n    setTimeout(loadBgVideo, 50);\n  } else {\n    window.addEventListener('load', function() { setTimeout(loadBgVideo, 50); });\n  }\n})();",
+    "strategy": "afterInteractive"
   }
 ];
