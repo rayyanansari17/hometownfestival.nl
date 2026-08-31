@@ -1,3 +1,44 @@
+:root {
+  --brand-paper: #fbf8f2; /* cream page background, light mode */
+  --brand-ink: #1b1830;
+}
+[data-theme='dark'] {
+  --brand-paper: #100e1a;
+  --brand-ink: #f3f0fb;
+}
+
+body {
+  background: var(--brand-paper);
+  color: var(--brand-ink);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.bg-paper-texture {
+  background-image: url('/texture/paper-texture.jpg');
+  background-size: 600px;
+  background-repeat: repeat;
+  opacity: 0.3;
+}
+[data-theme='dark'] .bg-paper-texture {
+  opacity: 0.06;
+}
+
+/* drifting starfield keyframes — exact values from FEEL */
+@keyframes night-drift-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100%, 0, 0); }
+}
+@keyframes night-drift-y {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -100%, 0); }
+}
+.night-drift-x { animation: night-drift-x var(--drift-x, 300s) linear infinite; }
+.night-drift-y { animation: night-drift-y var(--drift-y, 240s) linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .night-drift-x, .night-drift-y { animation: none; }
+}
+
 @keyframes sun-glow {
   0%, 100% { filter: drop-shadow(0 0 18px rgba(255, 211, 78, 0.55)); }
   50% { filter: drop-shadow(0 0 34px rgba(255, 211, 78, 0.85)); }

@@ -2,15 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { isNightNow } from '../lib/isNightNow';
 import styles from './GardenFooter.module.css';
 
 const FLOWER_EMOJIS = ['🌸', '🌼', '🌷', '🌻', '🌺'];
 const GRASS_TOP_PCT = 66; // % from top where grass begins
-
-function isNightNow() {
-  const hour = new Date().getHours();
-  return hour >= 20 || hour < 6;
-}
 
 export default function GardenFooter({
   night, // optional override; if omitted, computed from the visitor's local clock

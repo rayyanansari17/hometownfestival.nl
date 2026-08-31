@@ -3,6 +3,7 @@ import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import PersistentTicket from './PersistentTicket';
 import GardenFooter from './GardenFooter';
+import NightSkyBackground from './NightSkyBackground';
 import './globals.css';
 
 export const metadata = {
@@ -54,6 +55,14 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body suppressHydrationWarning>
+        <div
+          style={{ position: 'fixed', inset: 0, zIndex: -20, overflow: 'hidden' }}
+          aria-hidden
+        >
+          <NightSkyBackground />
+          <div className="bg-paper-texture" style={{ position: 'absolute', inset: 0 }} />
+        </div>
+
         <PersistentTicket />
         {children}
         <GardenFooter />

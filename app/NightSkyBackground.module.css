@@ -1,0 +1,24 @@
+.wrapper {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+}
+
+.driftLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9999px;
+}
