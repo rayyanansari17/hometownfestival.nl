@@ -1,0 +1,17 @@
+@keyframes sun-glow {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(255, 211, 78, 0.55)); }
+  50% { filter: drop-shadow(0 0 34px rgba(255, 211, 78, 0.85)); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes float-cloud {
+  from { transform: translateX(-10%); }
+  to { transform: translateX(110%); }
+}
+@keyframes bird-fly {
+  0% { transform: translate(0, 0) scaleX(1); }
+  50% { transform: translate(45vw, -6vh) scaleX(1); }
+  100% { transform: translate(92vw, 2vh) scaleX(1); }
+}

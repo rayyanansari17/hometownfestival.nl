@@ -2,6 +2,8 @@ import Script from 'next/script';
 import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import PersistentTicket from './PersistentTicket';
+import GardenFooter from './GardenFooter';
+import './globals.css';
 
 export const metadata = {
   icons: {
@@ -54,6 +56,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <PersistentTicket />
         {children}
+        <GardenFooter />
 
         <Script
           id="fbq-init"
