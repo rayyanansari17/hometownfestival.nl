@@ -26,7 +26,8 @@ body {
 .section_intro,
 .section_stage-26,
 .section_activities,
-.section_faq {
+.section_faq,
+.section_photos {
   background-color: var(--brand-paper) !important;
 }
 /* .big-title_wrapper's ghost/watermark text defaults to white-at-20%-opacity,
@@ -36,8 +37,22 @@ body {
    invisible, against the new white background. */
 .section_intro .big-title_wrapper,
 .section_stage-26 .big-title_wrapper,
-.section_activities .big-title_wrapper {
+.section_activities .big-title_wrapper,
+.section_photos .big-title_wrapper {
   color: rgba(27, 24, 48, 0.2) !important;
+}
+
+/* These sections each have a large margin-top (5-15rem) in the original
+   design, presumably so their own background gradient/image bled through
+   the gap into the next section's matching gradient. Now that each of them
+   is a flat solid fill instead, that margin gap is unpainted empty space
+   showing the fixed starfield backdrop through as a visible seam - close it
+   so the filled sections read as one continuous area. */
+.section_stage-26,
+.section_activities,
+.section_faq,
+.section_photos {
+  margin-top: 0 !important;
 }
 
 /* drifting starfield keyframes — exact values from FEEL */
