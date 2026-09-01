@@ -23,6 +23,18 @@ body {
   opacity: 0.06;
 }
 
+.section_intro {
+  background-color: var(--brand-paper) !important;
+}
+/* .big-title_wrapper's ghost/watermark text defaults to white-at-20%-opacity,
+   tuned for the dark gradient this section used to have. Scoped (not global,
+   since the same class sits over video/dark photos elsewhere and needs to
+   stay white there) to a dark equivalent so it's still visible, not invisible,
+   against the new white background. */
+.section_intro .big-title_wrapper {
+  color: rgba(27, 24, 48, 0.2) !important;
+}
+
 /* drifting starfield keyframes — exact values from FEEL */
 @keyframes night-drift-x {
   from { transform: translate3d(0, 0, 0); }
