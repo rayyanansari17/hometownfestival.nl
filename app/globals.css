@@ -71,6 +71,30 @@ body {
   opacity: 0 !important;
 }
 
+/* The video itself now loads fast and really does play (confirmed live) -
+   real festival footage can't literally BE a flat black/white color while
+   still visibly running, so instead of hiding it, lay a theme-colored tint
+   over it: dark at night, light by day. Motion/detail still shows through,
+   but the palette leans into the theme instead of the video's own warm
+   grade. Attached to .home-hero_video-wrapper (already position:relative in
+   the external stylesheet) rather than .home-hero_video itself (which has
+   no position set, so z-index/absolute children resolve against the
+   wrapper) - z-index:2 sits above the video/iframe's z-index:-100 but below
+   the play-button lightbox's z-index:10. */
+.home-hero_video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+[data-theme='dark'] .home-hero_video-wrapper::after {
+  background: rgba(16, 14, 26, 0.6);
+}
+[data-theme='light'] .home-hero_video-wrapper::after {
+  background: rgba(251, 248, 242, 0.55);
+}
+
 /* Both curved-arrow decorations are light/white-stroke SVG <img>s, fine
    against a dark background but invisible once their card/section gets the
    light-mode cream fill. Can't retarget an <img>'s internal color with
