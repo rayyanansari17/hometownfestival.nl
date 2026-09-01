@@ -52,7 +52,18 @@ body {
 .section_activities,
 .section_faq,
 .section_photos {
-  margin-top: 0 !important;
+  margin-top: -1px !important;
+}
+
+/* .intro_text-arrow (the curved arrow near "The Third HomeTown") is already
+   position:absolute (external stylesheet) but had no z-index, relying on
+   default stacking/DOM order. With the margin gap above closed,
+   section_stage-26 (which comes right after in the DOM and paints its own
+   solid background) now visually overlaps and covers the arrow's tip. Raise
+   it above that section's default stacking level - z-index alone is enough
+   since it's already positioned. */
+.intro_text-arrow {
+  z-index: 5 !important;
 }
 
 /* drifting starfield keyframes — exact values from FEEL */
