@@ -40,6 +40,7 @@ export default function NightSkyBackground({ night }) {
   const ref = useRef(null);
   const [size, setSize] = useState(null);
   const [autoNight, setAutoNight] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   const effectiveNight = night !== undefined ? night : autoNight;
 
@@ -47,6 +48,14 @@ export default function NightSkyBackground({ night }) {
     setAutoNight(isNightNow());
     const interval = window.setInterval(() => setAutoNight(isNightNow()), 5 * 60 * 1000);
     return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const onChange = (e) => setReducedMotion(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
   }, []);
 
   // Keep <html data-theme> in sync so the CSS variables / paper-texture
@@ -90,28 +99,39 @@ export default function NightSkyBackground({ night }) {
 
       {size &&
         shadows &&
-        LAYERS.map((layer, i) => (
-          <div
-            key={i}
-            className={`night-drift-x ${styles.driftLayer}`}
-            style={{ '--drift-x': `${Math.round(size.w / layer.speedX)}s` }}
-          >
-            <div
-              className={`night-drift-y ${styles.driftLayer}`}
-              style={{ '--drift-y': `${Math.round(size.h / layer.speedY)}s` }}
-            >
-              <div
-                className={styles.star}
-                style={{
-                  width: layer.size,
-                  height: layer.size,
-                  opacity: layer.opacity,
-                  boxShadow: shadows[i],
-                }}
-              />
+        LAYERS.map((layer, i) => {
+          const driftXStyle = reducedMotion
+            ? undefined
+            : {
+                animationName: 'night-drift-x',
+                animationDuration: `${Math.round(size.w / layer.speedX)}s`,
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite',
+              };
+          const driftYStyle = reducedMotion
+            ? undefined
+            : {
+                animationName: 'night-drift-y',
+                animationDuration: `${Math.round(size.h / layer.speedY)}s`,
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite',
+              };
+          return (
+            <div key={i} className={styles.driftLayer} style={driftXStyle}>
+              <div className={styles.driftLayer} style={driftYStyle}>
+                <div
+                  className={styles.star}
+                  style={{
+                    width: layer.size,
+                    height: layer.size,
+                    opacity: layer.opacity,
+                    boxShadow: shadows[i],
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
     </div>
   );
 }

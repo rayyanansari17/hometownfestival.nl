@@ -23,15 +23,20 @@ body {
   opacity: 0.06;
 }
 
-.section_intro {
+.section_intro,
+.section_stage-26,
+.section_activities,
+.section_faq {
   background-color: var(--brand-paper) !important;
 }
 /* .big-title_wrapper's ghost/watermark text defaults to white-at-20%-opacity,
-   tuned for the dark gradient this section used to have. Scoped (not global,
-   since the same class sits over video/dark photos elsewhere and needs to
-   stay white there) to a dark equivalent so it's still visible, not invisible,
-   against the new white background. */
-.section_intro .big-title_wrapper {
+   tuned for the dark gradients these sections used to have. Scoped (not
+   global, since the same class sits over video/dark photos elsewhere and
+   needs to stay white there) to a dark equivalent so it's still visible, not
+   invisible, against the new white background. */
+.section_intro .big-title_wrapper,
+.section_stage-26 .big-title_wrapper,
+.section_activities .big-title_wrapper {
   color: rgba(27, 24, 48, 0.2) !important;
 }
 
@@ -43,12 +48,6 @@ body {
 @keyframes night-drift-y {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(0, -100%, 0); }
-}
-.night-drift-x { animation: night-drift-x var(--drift-x, 300s) linear infinite; }
-.night-drift-y { animation: night-drift-y var(--drift-y, 240s) linear infinite; }
-
-@media (prefers-reduced-motion: reduce) {
-  .night-drift-x, .night-drift-y { animation: none; }
 }
 
 @keyframes sun-glow {
