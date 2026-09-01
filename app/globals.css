@@ -82,7 +82,19 @@ body {
    z-index:10. Opacity pushed high (0.92/0.9) so this area reads as
    essentially the same solid dark/white as the rest of the themed page -
    the video keeps technically playing underneath, just heavily covered,
-   rather than being turned off. */
+   rather than being turned off.
+
+   The wrapper also needs overflow:hidden: the injected YouTube iframe is
+   deliberately oversized (width:177.78vh;height:100vh, centered via
+   transform) so it always covers the container regardless of aspect ratio -
+   with the wrapper's overflow left at its default `visible`, that oversized
+   video bleeds past the wrapper's own box in every direction, past where
+   this inset:0 tint reaches. Clipping it back down to the wrapper's box is
+   the standard/intended behavior for this "oversize + center + clip" cover
+   technique anyway. */
+.home-hero_video-wrapper {
+  overflow: hidden !important;
+}
 .home-hero_video-wrapper::after {
   content: '';
   position: absolute;
