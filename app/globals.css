@@ -109,13 +109,19 @@ body {
   background: rgba(251, 248, 242, 0.9);
 }
 
-/* Both curved-arrow decorations are light/white-stroke SVG <img>s, fine
-   against a dark background but invisible once their card/section gets the
-   light-mode cream fill. Can't retarget an <img>'s internal color with
-   `color`, so flip it dark via filter, only in light mode (NightSkyBackground
-   sets data-theme="light" explicitly, not just the absence of "dark"). */
-[data-theme='light'] .home-hero_arrow img,
+/* .intro_text-arrow is a light/white-stroke SVG <img>, fine against a dark
+   background but invisible once its section gets the light-mode cream
+   fill. Can't retarget an <img>'s internal color with `color`, so flip it
+   dark via filter, only in light mode (NightSkyBackground sets
+   data-theme="light" explicitly, not just the absence of "dark"). */
 [data-theme='light'] .intro_text-arrow {
+  filter: brightness(0) !important;
+}
+
+/* .home-hero_arrow needs the opposite direction: white by day (its native
+   SVG color already reads as white/light, so no filter needed there), dark
+   at night. */
+[data-theme='dark'] .home-hero_arrow img {
   filter: brightness(0) !important;
 }
 
