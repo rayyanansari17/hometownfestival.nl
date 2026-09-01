@@ -44,11 +44,32 @@ body {
 
 /* .fe-txt ("THIRD EDITION" badge) is fully-opaque label text, not a faint
    watermark - was hardcoded to the dark bordeaux (#570520), which only read
-   correctly against the pink card background just removed below. */
+   correctly in one theme direction. */
 .fe-txt {
   color: var(--brand-ink) !important;
 }
 
+/* The hero's own background video never actually plays here - its
+   data-video-urls point at unused self-hosted files, and what really shows
+   is a YouTube iframe injected by the hero-bg-video-lazy-load script (see
+   home-scripts.js). Until that iframe lands, the only visible thing was a
+   warm-toned poster <img>. Give the container a theme-colored fill and hide
+   just that poster image (not the container), so the iframe - appended
+   after it in the DOM - still shows on top once it's ready. */
+.home-hero_video {
+  background-color: var(--brand-paper) !important;
+}
+[data-theme='light'] .home-hero_video {
+  background-image: url('/texture/paper-texture.jpg') !important;
+  background-size: 600px !important;
+  background-repeat: repeat !important;
+}
+[data-theme='dark'] .home-hero_video {
+  background-image: none !important;
+}
+.home-hero_video > img {
+  opacity: 0 !important;
+}
 
 /* Both curved-arrow decorations are light/white-stroke SVG <img>s, fine
    against a dark background but invisible once their card/section gets the
