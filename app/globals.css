@@ -49,17 +49,27 @@ body {
   color: var(--brand-ink) !important;
 }
 
-/* .home-hero_text-wrapper is the pink torn-paper "sticker" card behind the
-   hero schedule text - color is baked into an SVG image, not a CSS color,
-   same as the other cards already fixed. Unlike the section-level fixes,
-   this card sits directly over the hero VIDEO (not another one of our own
-   solid-filled sections), so merely removing the image left it with no
-   background at all - the video was showing straight through, which is why
-   "THIRD EDITION" looked gone and the area still read as colorful. Give it
-   an actual solid fill instead, same as every other card. */
-.home-hero_text-wrapper {
-  background-image: none !important;
+/* section_home-hero itself has no background in the original design - it's
+   just a transparent wrapper around the actual aftermovie video/poster
+   (id="hero-bg-video"), which is what was actually showing as a warm
+   orange/pink area, not a CSS color. Hide that video/poster visually (its
+   lightbox "watch aftermovie" click target stays intact) and give the
+   section itself the same solid-fill + light-mode paper-texture treatment
+   as the other sections, so it reads as part of the themed page instead of
+   a leftover video color. */
+.home-hero_video {
+  opacity: 0 !important;
+}
+.section_home-hero {
   background-color: var(--brand-paper) !important;
+}
+[data-theme='light'] .section_home-hero {
+  background-image: url('/texture/paper-texture.jpg') !important;
+  background-size: 600px !important;
+  background-repeat: repeat !important;
+}
+[data-theme='dark'] .section_home-hero {
+  background-image: none !important;
 }
 
 /* Both curved-arrow decorations are light/white-stroke SVG <img>s, fine
