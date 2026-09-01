@@ -39,38 +39,6 @@ body {
   .night-drift-x, .night-drift-y { animation: none; }
 }
 
-/* Let the site-wide paper-texture/starfield backdrop show through the
-   Webflow-designed card/section backgrounds that would otherwise hide it.
-   Text that relied on those backgrounds for contrast is repointed to the
-   theme-aware --brand-ink token so it stays legible in both light and dark
-   mode, instead of a single hardcoded color that only worked against the
-   background being removed here. !important is needed to beat the external
-   Webflow stylesheet's equal-specificity rules. */
-.home-hero_text-wrapper {
-  background-image: none !important;
-}
-.fe-txt {
-  color: var(--brand-ink) !important;
-}
-
-.details-content-wrap {
-  background-color: transparent !important;
-}
-.details-content-title,
-.details-content-p {
-  color: var(--brand-ink) !important;
-}
-
-.faq_dropdow-toggle,
-.faq_dropdow-toggle.w--open,
-.faq_dropdown-list,
-.detail-faq_dropdow-toggle {
-  background-color: transparent !important;
-}
-.rich-text-block {
-  color: var(--brand-ink) !important;
-}
-
 @keyframes sun-glow {
   0%, 100% { filter: drop-shadow(0 0 18px rgba(255, 211, 78, 0.55)); }
   50% { filter: drop-shadow(0 0 34px rgba(255, 211, 78, 0.85)); }
