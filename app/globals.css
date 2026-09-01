@@ -51,9 +51,15 @@ body {
 
 /* .home-hero_text-wrapper is the pink torn-paper "sticker" card behind the
    hero schedule text - color is baked into an SVG image, not a CSS color,
-   same as the other cards already fixed. */
+   same as the other cards already fixed. Unlike the section-level fixes,
+   this card sits directly over the hero VIDEO (not another one of our own
+   solid-filled sections), so merely removing the image left it with no
+   background at all - the video was showing straight through, which is why
+   "THIRD EDITION" looked gone and the area still read as colorful. Give it
+   an actual solid fill instead, same as every other card. */
 .home-hero_text-wrapper {
   background-image: none !important;
+  background-color: var(--brand-paper) !important;
 }
 
 /* Both curved-arrow decorations are light/white-stroke SVG <img>s, fine
