@@ -2,3 +2,7 @@ node_modules/
 .next/
 .vercel/
 .env*
+
+# Raw camera-roll dump (128MB+ of source photos/videos) - never meant to
+# ship to the CDN. Curated copies live in public/images/ and public/videos/.
+public/assets/

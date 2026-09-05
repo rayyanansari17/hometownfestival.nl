@@ -44,6 +44,31 @@ body {
   line-height: 1.3 !important;
 }
 
+/* The 5 giant decorative watermarks in .big-title_wrapper were all <h1>,
+   which is an SEO problem (a page should have exactly one h1, and none of
+   these carry the real page title). Demoted them to <h2> in the markup and
+   added one visually-hidden real <h1> near the top of the body instead.
+   This rule replicates the external stylesheet's bare `h1` selector sizing
+   (text-transform, font, weight, the 11vw/16vw viewport-relative sizing and
+   its <=479px breakpoint) so the demotion doesn't shrink them down to the
+   much smaller default h2 size - confirmed via live computed-style
+   measurement at 1440/991/767/479/375px before and after this change. */
+.big-title_wrapper h2 {
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Agrandir, Arial, sans-serif;
+  font-size: 11vw;
+  font-weight: 700;
+  line-height: 10.5vw;
+}
+@media screen and (max-width: 479px) {
+  .big-title_wrapper h2 {
+    font-size: 16vw;
+    line-height: 15vw;
+  }
+}
+
 /* drifting starfield keyframes — exact values from FEEL */
 @keyframes night-drift-x {
   from { transform: translate3d(0, 0, 0); }

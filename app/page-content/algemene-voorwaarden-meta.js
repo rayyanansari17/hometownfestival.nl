@@ -1,9 +1,9 @@
 export const algemeneVoorwaardenMeta = {
   "title": "Terms & Conditions",
-  "metaDescription": null,
+  "metaDescription": "Terms and conditions for FEEL 2026, India's largest mental wellness event.",
   "ogTitle": "Terms & Conditions",
-  "ogDescription": null,
-  "ogType": null,
+  "ogDescription": "Terms and conditions for FEEL 2026, India's largest mental wellness event.",
+  "ogType": "website",
   "twitterTitle": "Terms & Conditions",
   "twitterDescription": null,
   "twitterCard": null,

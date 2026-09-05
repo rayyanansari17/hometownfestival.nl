@@ -3,9 +3,38 @@ import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import NightSkyBackground from './NightSkyBackground';
 import ChatWidget from './ChatWidget';
+import { SITE_URL, EVENT, OG_IMAGE } from '../lib/site';
 import './globals.css';
 
+const defaultDescription =
+  "FEEL 2026 is India's largest mental wellness event - a day of therapy, art, games, and community in Hyderabad. Saturday 10 October 2026.";
+
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    template: `%s | ${EVENT.name}`,
+    default: `${EVENT.name} - ${EVENT.description}`,
+  },
+  description: defaultDescription,
+  openGraph: {
+    siteName: EVENT.name,
+    type: 'website',
+    locale: 'en_IN',
+    url: SITE_URL,
+    title: `${EVENT.name} - ${EVENT.description}`,
+    description: defaultDescription,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${EVENT.name} - ${EVENT.description}`,
+    description: defaultDescription,
+    images: [OG_IMAGE.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
