@@ -1,10 +1,10 @@
 export const homeMeta = {
-  "title": "HomeTown Festival | Saturday 10 October 2026",
+  "title": "Feel 2026 - India's Largest Mental Wellness Event",
   "metaDescription": "The 6th edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
-  "ogTitle": "HomeTown Festival | Saturday 10 October 2026",
+  "ogTitle": "Feel 2026 - India's Largest Mental Wellness Event",
   "ogDescription": "The 6th edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
   "ogType": "website",
-  "twitterTitle": "HomeTown Festival | Saturday 10 October 2026",
+  "twitterTitle": "Feel 2026 - India's Largest Mental Wellness Event",
   "twitterDescription": "The 6th edition of HTF! 🌴 Get ready, because we've got so much in store for you this time! Going out with a bang 💥💥",
   "twitterCard": "summary_large_image",
   "robotsMeta": null,
