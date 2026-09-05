@@ -77,6 +77,49 @@ body {
   }
 }
 
+/* Each stage card's background-video box uses the classic "oversize the
+   video, translate to centre" cover technique (177.78vh/100vh on the
+   iframe, same trick fixed earlier for the hero video) but never clips it -
+   measured live on a 390px mobile viewport, the Healing + Food Concept
+   card's iframe rendered 1529px wide, spilling out of its card and reading
+   as stray content/space to the right of the page. Clip every card's video
+   box back down to its own bounds - this is the standard, intended
+   behaviour for that cover technique, not a design choice being undone. */
+.st-26_background-vid {
+  overflow: hidden;
+}
+
+/* The chat-trigger emoji, LinkedIn SVG, and activity emoji were centred via
+   position:absolute + top/left:50% + translate(-50%,-50%) directly on the
+   glyph/SVG's own box. That's centred on desktop Chrome, but an emoji
+   glyph's rendered box depends on the platform's emoji font metrics - on
+   Android those differ enough that the same markup visibly drifts off
+   the circle's centre. Give every one of these icons a fixed-size flex box
+   instead, so centring comes from the box (metric-independent), not from
+   translating the glyph's own variable-sized box. */
+.graphic_dotted-circle_icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.6rem !important;
+  height: 2.6rem !important;
+  line-height: 1 !important;
+}
+
+/* Stage cards read too cramped on mobile - loosen the card's internal
+   padding and the gap between its title/description/category blocks below
+   the tablet breakpoint (matches the breakpoint the external stylesheet
+   already uses for .st-26-cont-inner's own padding steps). */
+@media screen and (max-width: 767px) {
+  .st-26-cont-inner {
+    padding: 1.1rem !important;
+    grid-row-gap: 0.9rem !important;
+  }
+  .st-26-art-wrap {
+    margin-bottom: 0.6rem;
+  }
+}
+
 /* drifting starfield keyframes — exact values from FEEL */
 @keyframes night-drift-x {
   from { transform: translate3d(0, 0, 0); }
