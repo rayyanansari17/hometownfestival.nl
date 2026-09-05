@@ -1,8 +1,6 @@
 import Script from 'next/script';
 import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
-import PersistentTicket from './PersistentTicket';
-import GardenFooter from './GardenFooter';
 import NightSkyBackground from './NightSkyBackground';
 import './globals.css';
 
@@ -63,9 +61,7 @@ export default function RootLayout({ children }) {
           <div className="bg-paper-texture" style={{ position: 'absolute', inset: 0 }} />
         </div>
 
-        <PersistentTicket />
         {children}
-        <GardenFooter />
 
         <Script
           id="fbq-init"
