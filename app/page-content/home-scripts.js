@@ -125,5 +125,10 @@ export const homeScripts = [
     "id": "hero-bg-video-lazy-load",
     "content": "(function() {\n  function loadBgVideo() {\n    var container = document.getElementById('hero-bg-video');\n    if (!container || container.querySelector('video')) return;\n    var video = document.createElement('video');\n    video.src = '/videos/hero-bg.mp4';\n    video.autoplay = true;\n    video.muted = true;\n    video.loop = true;\n    video.playsInline = true;\n    video.setAttribute('muted', '');\n    video.setAttribute('playsinline', '');\n    video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-100';\n    container.appendChild(video);\n  }\n  if (document.readyState === 'loading') {\n    window.addEventListener('DOMContentLoaded', loadBgVideo);\n  } else {\n    loadBgVideo();\n  }\n})();",
     "strategy": "afterInteractive"
+  },
+  {
+    "id": "stage-card-slideshow",
+    "content": "(function() {\n  function initSlideshows() {\n    document.querySelectorAll('.st-26-slideshow').forEach(function(container) {\n      if (container.dataset.slideshowBound) return;\n      container.dataset.slideshowBound = 'true';\n      var imgs = container.querySelectorAll('.st-26-slideshow-img');\n      var idx = 0;\n      if (imgs.length < 2) return;\n      setInterval(function() {\n        imgs[idx].style.opacity = '0';\n        idx = (idx + 1) % imgs.length;\n        imgs[idx].style.opacity = '1';\n      }, 3500);\n    });\n  }\n  if (document.readyState === 'loading') {\n    window.addEventListener('DOMContentLoaded', initSlideshows);\n  } else {\n    initSlideshows();\n  }\n})();",
+    "strategy": "afterInteractive"
   }
 ];
