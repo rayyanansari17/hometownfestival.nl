@@ -23,6 +23,27 @@ body {
   opacity: 0.06;
 }
 
+/* Stage-card artist badges: title vs subtitle read too similarly at the
+   smaller breakpoints (both just inherit default h3/h4 bold). Push them
+   apart - bolder/bigger title, lighter/smaller subtitle - across all stage
+   cards for consistency, not just the one that prompted this. */
+.st-26_heading-art {
+  font-weight: 800 !important;
+}
+.st-26_heading-art._2 {
+  font-weight: 400 !important;
+  font-size: 0.75rem !important;
+}
+
+/* The activities section's ghost/watermark heading is much longer than the
+   original "Drink-Eat-Love-dance" text it replaced, so the shared h1's
+   viewport-relative font-size (11vw+) wrapped it across 4 ugly lines.
+   Scale it down and let the markup's own <br/> control the 2-line break. */
+.activities-ghost-heading {
+  font-size: 5vw !important;
+  line-height: 1.3 !important;
+}
+
 /* drifting starfield keyframes — exact values from FEEL */
 @keyframes night-drift-x {
   from { transform: translate3d(0, 0, 0); }
