@@ -2,6 +2,7 @@ import Script from 'next/script';
 import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import NightSkyBackground from './NightSkyBackground';
+import ChatWidget from './ChatWidget';
 import './globals.css';
 
 export const metadata = {
@@ -69,6 +70,30 @@ export default function RootLayout({ children }) {
         </div>
 
         {children}
+        <ChatWidget />
+
+        <Script
+          id="footer-chat-trigger-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+  function bind() {
+    var trigger = document.getElementById('footer-chat-trigger');
+    if (!trigger || trigger.dataset.chatBound) return;
+    trigger.dataset.chatBound = 'true';
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent('feel-chat-toggle'));
+    });
+  }
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+})();`,
+          }}
+        />
 
         <Script
           id="fbq-init"
