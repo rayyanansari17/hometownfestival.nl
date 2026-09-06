@@ -89,20 +89,22 @@ body {
   overflow: hidden;
 }
 
-/* The chat-trigger emoji, LinkedIn SVG, and activity emoji were centred via
-   position:absolute + top/left:50% + translate(-50%,-50%) directly on the
-   glyph/SVG's own box. That's centred on desktop Chrome, but an emoji
-   glyph's rendered box depends on the platform's emoji font metrics - on
-   Android those differ enough that the same markup visibly drifts off
-   the circle's centre. Give every one of these icons a fixed-size flex box
-   instead, so centring comes from the box (metric-independent), not from
-   translating the glyph's own variable-sized box. */
+/* The chat-trigger emoji, LinkedIn SVG, and activity emoji all use the same
+   inline pattern: position:absolute;top:50%;left:50%;transform:translate(
+   -50%,-50%) directly on the glyph/SVG's own box. A previous attempt at
+   fixing Android drift added a fixed 2.6rem width/height on top of that
+   inline transform, without re-verifying the combination live - dropped
+   here in favour of a single, unambiguous approach: make the icon fill its
+   parent circle exactly (inset:0) and cancel the inline transform outright,
+   so there's no separate "box" left whose centre could be computed
+   differently on a different platform - the icon's box IS the circle's box. */
 .graphic_dotted-circle_icon {
+  position: absolute !important;
+  inset: 0 !important;
+  transform: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 2.6rem !important;
-  height: 2.6rem !important;
   line-height: 1 !important;
 }
 
@@ -117,6 +119,24 @@ body {
   }
   .st-26-art-wrap {
     margin-bottom: 0.6rem;
+  }
+
+  /* .st-26-cont-wrap.artist (the schedule/category box) is width:auto in
+     the external stylesheet at this breakpoint while .intro-block (the
+     description box right above it) is width:100% - the mismatch reads as
+     the second box being oddly compact next to the first. Match them. */
+  .st-26-cont-wrap.artist {
+    width: 100% !important;
+  }
+
+  /* .st-26_heading's smallest existing breakpoint is font-size:1.6rem,
+     height:1.2rem (fixed) - too big/too short for the longer card titles
+     ("THE GATHERING GROUND", "THE HEALING + FOOD CONCEPT"), which spill
+     past their pill-shaped badge on narrow phones. Shrink further and let
+     the badge grow to fit a wrapped 2-line title instead of clipping it. */
+  .st-26_heading {
+    font-size: 1.35rem !important;
+    height: auto !important;
   }
 }
 
