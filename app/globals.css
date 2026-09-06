@@ -93,14 +93,18 @@ body {
    inline pattern: position:absolute;top:50%;left:50%;transform:translate(
    -50%,-50%) directly on the glyph/SVG's own box. A previous attempt at
    fixing Android drift added a fixed 2.6rem width/height on top of that
-   inline transform, without re-verifying the combination live - dropped
-   here in favour of a single, unambiguous approach: make the icon fill its
-   parent circle exactly (inset:0) and cancel the inline transform outright,
-   so there's no separate "box" left whose centre could be computed
-   differently on a different platform - the icon's box IS the circle's box. */
+   inline transform, then a follow-up dropped the fixed size in favour of
+   inset:0 alone - but measured live, inset:0 was NOT stretching the icon:
+   it computed to the glyph's natural 96x40 box (not the wrapper's 96x96),
+   pinned to the wrapper's top - 28px above the circle's actual centre,
+   identically on every icon on the page. inset:0 only stretches an element
+   when nothing else constrains its size; explicit width/height:100% is
+   what actually forces it to fill the wrapper regardless. */
 .graphic_dotted-circle_icon {
   position: absolute !important;
   inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   transform: none !important;
   display: flex !important;
   align-items: center !important;
@@ -137,6 +141,19 @@ body {
   .st-26_heading {
     font-size: 1.35rem !important;
     height: auto !important;
+  }
+
+  /* The 4 category lines (ART & EXPRESSION / TALKS & PANELS / WELLNESS &
+     SUPPORT / PLAY & CONNECT) stack in one column by default, making the
+     schedule box nearly twice as tall as it needs to be. Lay them out 2x2
+     instead - halves the box height, which is the "shorter from the
+     bottom" part of the request. */
+  .st-26-cont-wrap.artist .st-26-cont-inner {
+    flex-flow: row wrap !important;
+  }
+  .st-26-cont-wrap.artist .st-26-art-wrap {
+    flex: 0 0 47%;
+    margin-bottom: 0.4rem;
   }
 }
 

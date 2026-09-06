@@ -123,7 +123,7 @@ export const homeScripts = [
   },
   {
     "id": "hero-bg-video-lazy-load",
-    "content": "(function() {\n  function loadBgVideo() {\n    var container = document.getElementById('hero-bg-video');\n    if (!container || container.querySelector('video')) return;\n    var video = document.createElement('video');\n    video.src = '/videos/hero-bg.mp4';\n    video.autoplay = true;\n    video.muted = true;\n    video.loop = true;\n    video.playsInline = true;\n    video.setAttribute('muted', '');\n    video.setAttribute('playsinline', '');\n    video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);pointer-events:none;z-index:-100';\n    container.appendChild(video);\n  }\n  if (document.readyState === 'loading') {\n    window.addEventListener('DOMContentLoaded', loadBgVideo);\n  } else {\n    loadBgVideo();\n  }\n})();",
+    "content": "(function() {\n  function loadBgVideo() {\n    var container = document.getElementById('hero-bg-video');\n    if (!container || container.querySelector('video')) return;\n    var video = document.createElement('video');\n    video.src = '/videos/hero-bg.mp4';\n    video.autoplay = true;\n    video.muted = true;\n    video.loop = true;\n    video.playsInline = true;\n    video.setAttribute('muted', '');\n    video.setAttribute('playsinline', '');\n    video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.62);pointer-events:none;z-index:-100';\n    container.appendChild(video);\n  }\n  if (document.readyState === 'loading') {\n    window.addEventListener('DOMContentLoaded', loadBgVideo);\n  } else {\n    loadBgVideo();\n  }\n})();",
     "strategy": "afterInteractive"
   },
   {
