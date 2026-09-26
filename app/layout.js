@@ -3,7 +3,7 @@ import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import NightSkyBackground from './NightSkyBackground';
 import ChatWidget from './ChatWidget';
-import { SITE_URL, EVENT, OG_IMAGE } from '../lib/site';
+import { SITE_URL, EVENT, OG_IMAGE, FB_PIXEL_ID, FB_PIXEL_INIT } from '../lib/site';
 import './globals.css';
 
 const defaultDescription =
@@ -127,8 +127,18 @@ export default function RootLayout({ children }) {
         <Script
           id="fbq-init"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: sharedHead.fbqInit }}
+          dangerouslySetInnerHTML={{ __html: FB_PIXEL_INIT }}
         />
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
         <Script src={sharedHead.gtagSrc} strategy="afterInteractive" />
         <Script
           id="ga-init"
