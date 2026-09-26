@@ -139,12 +139,6 @@ export default function RootLayout({ children }) {
             src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
           />
         </noscript>
-        <Script src={sharedHead.gtagSrc} strategy="afterInteractive" />
-        <Script
-          id="ga-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: sharedHead.gtagInline }}
-        />
         <Script
           id="finsweet-linkblockedit"
           src={sharedHead.finsweetLinkblockedit}
