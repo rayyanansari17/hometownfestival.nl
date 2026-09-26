@@ -1,0 +1,99 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(27, 24, 48, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.dialog {
+  position: relative;
+  width: min(400px, 100%);
+  background: #fffaf0;
+  color: #1b1830;
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  font-family: Agrandir, Arial, sans-serif;
+}
+
+.close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: none;
+  border: 0;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #1b1830;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #0f7a3b;
+}
+
+.sub {
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid #d9d2c2;
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+  color: #1b1830;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0f7a3b;
+}
+
+.error {
+  margin: -0.3rem 0 0.8rem;
+  color: #c0263d;
+  font-size: 0.85rem;
+}
+
+.submit {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 100px;
+  background: #25d366;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background: #1ebe5a;
+}

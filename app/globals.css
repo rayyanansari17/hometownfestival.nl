@@ -157,6 +157,61 @@ body {
   }
 }
 
+/* Loading screen: its only background is a sky .avif fetched from the CDN,
+   so until that image downloads (~5s on a slow phone connection) the
+   full-screen loader is transparent and the page underneath shows through -
+   which is the "flash of the old site" on first load. A matching solid
+   colour makes it opaque from the very first paint. */
+.pageloader {
+  background-color: #a9d6f3 !important;
+}
+
+/* Book Stall sits beside Buy Tickets inside the same wrapper. */
+.button_buy-tickets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+.book-stall-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem; /* same box as the ticket pill's .button_icon, so both pills match in height */
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+/* Phones: smaller logo and buttons. .button.is-small (used by the nav's
+   Buy Tickets) out-specifies the stylesheet's own mobile .button rule, so it
+   stayed at 1.4rem on phones - override both explicitly. .is-seintje buttons
+   reserve right padding for a background-image icon, so leave their padding. */
+@media screen and (max-width: 479px) {
+  .navbar_logo-img.is-mobile {
+    height: 9.5rem !important;
+  }
+  .button,
+  .button.is-small {
+    font-size: 1rem !important;
+  }
+  .button:not(.is-seintje),
+  .button.is-small:not(.is-seintje) {
+    padding: 0.55rem 1rem 0.3rem !important;
+  }
+  .button_icon {
+    height: 1.8rem !important;
+  }
+  .book-stall-icon {
+    height: 1.8rem;
+    font-size: 1.35rem;
+  }
+  .button_buy-tickets {
+    gap: 0.45rem;
+  }
+}
+
 /* drifting starfield keyframes — exact values from FEEL */
 @keyframes night-drift-x {
   from { transform: translate3d(0, 0, 0); }

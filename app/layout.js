@@ -3,6 +3,7 @@ import { sharedHead } from './page-content/shared-head';
 import { textSplitStyle } from './page-content/shared-styles';
 import NightSkyBackground from './NightSkyBackground';
 import ChatWidget from './ChatWidget';
+import BookStall from './BookStall';
 import { SITE_URL, EVENT, OG_IMAGE, FB_PIXEL_ID, FB_PIXEL_INIT } from '../lib/site';
 import './globals.css';
 
@@ -62,6 +63,12 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          href="https://cdn.prod.website-files.com/6405b63d5dbbf416845010e8/6800d40babbd178e6a8410ee_HTF_blauwelucht.avif"
+        />
         <link href={sharedHead.sharedCss.href} rel="preconnect" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
@@ -100,6 +107,7 @@ export default function RootLayout({ children }) {
 
         {children}
         <ChatWidget />
+        <BookStall />
 
         <Script
           id="footer-chat-trigger-init"
