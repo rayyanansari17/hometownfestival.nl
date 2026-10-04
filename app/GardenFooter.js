@@ -13,8 +13,8 @@ export default function GardenFooter({
   siteName = 'HomeTown Festival',
   organizer = 'HomeTown Festival',
   city = 'Maasland',
-  instagramUrl = 'https://www.instagram.com/hometownfestival/',
-  instagramHandle = '@hometownfestival',
+  instagramUrl = 'https://www.instagram.com/feelbygoodmind/',
+  instagramHandle = '@feelbygoodmind',
 }) {
   const [autoNight, setAutoNight] = useState(false);
   const [flowers, setFlowers] = useState([]);
